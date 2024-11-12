@@ -114,6 +114,12 @@ class Colocviu1_1MainActivity : AppCompatActivity() {
         outState.putInt("rightNumber", rightNumber)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val intent = Intent(this, Colocviu1_1Service::class.java)
+        stopService(intent)
+    }
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         if (savedInstanceState.containsKey("leftNumber") && savedInstanceState.containsKey("rightNumber")) {
